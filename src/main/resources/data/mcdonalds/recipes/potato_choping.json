@@ -1,0 +1,10 @@
+{
+  "type": "mcdonalds:chopping_recipe",
+  "input": {
+    "item": "minecraft:potato"
+  },
+  "output": {
+    "item" :  "mcdonalds:stripped_potatoes",
+    "count": 5
+  }
+}

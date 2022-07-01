@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mcdonalds:block/cutting_board"
+    },
+    "facing=east": {
+      "model": "mcdonalds:block/cutting_board",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mcdonalds:block/cutting_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mcdonalds:block/cutting_board",
+      "y": 270
+    }
+  }
+}

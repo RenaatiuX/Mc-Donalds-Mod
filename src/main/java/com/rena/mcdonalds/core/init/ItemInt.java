@@ -1,8 +1,11 @@
 package com.rena.mcdonalds.core.init;
 
 import com.rena.mcdonalds.McDonalds;
+import com.rena.mcdonalds.common.item.ModToolMaterial;
 import com.rena.mcdonalds.common.tab.McDonaldsTab;
 import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -10,6 +13,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ItemInt {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, McDonalds.MOD_ID);
+
+    public static final RegistryObject<SwordItem> KNIFE = ITEMS.register("knife", () -> new SwordItem(ModToolMaterial.KNIFE, 3, -2.5f, new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
 
     public static final RegistryObject<Item> MEAT_10_1 = ITEMS.register("meat_10_1",
             ()-> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
@@ -54,5 +59,6 @@ public class ItemInt {
             ()-> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
     public static final RegistryObject<Item> BOX = ITEMS.register("box",
             ()-> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
+    public static final RegistryObject<Item> STRIPPED_POTATOES = ITEMS.register("stripped_potatoes", () -> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
 
 }

@@ -2,11 +2,18 @@ package com.rena.mcdonalds;
 
 import com.rena.mcdonalds.client.ClientProxy;
 import com.rena.mcdonalds.client.MDModels;
+import com.rena.mcdonalds.client.render.blocks.ChoppingBoardRenderer;
 import com.rena.mcdonalds.core.ServerProxy;
+import com.rena.mcdonalds.core.init.BlockInit;
 import com.rena.mcdonalds.core.init.ItemInt;
+import com.rena.mcdonalds.core.init.RecipeInit;
+import com.rena.mcdonalds.core.init.TileEntityInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.model.ModelResourceLocation;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +22,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -35,15 +43,22 @@ public class McDonalds
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+    public static ResourceLocation modLoc(String name){
+        return new ResourceLocation(MOD_ID, name);
+    }
+
     public McDonalds() {
 
-        PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
+        PROXY = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
         // Register the setup method for modloading
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ItemInt.ITEMS.register(bus);
+        BlockInit.BLOCKS.register(bus);
+        TileEntityInit.TES.register(bus);
 
         PROXY.init(bus);
+        bus.addGenericListener(IRecipeSerializer.class, RecipeInit::registerRecipes);
 
         bus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -66,7 +81,7 @@ public class McDonalds
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
+        ClientRegistry.bindTileEntityRenderer(TileEntityInit.CHOPPING_BOEARD_TE.get(), ChoppingBoardRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
