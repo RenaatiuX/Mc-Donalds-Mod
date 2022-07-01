@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mcdonalds:item/fries_with_box"
+  }
+}
