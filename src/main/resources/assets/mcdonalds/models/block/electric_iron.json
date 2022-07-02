@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "electric_iron_side",
-		"1": "electric_iron_front",
-		"2": "top",
-		"4": "blast_furnace_top",
-		"particle": "electric_iron_side"
+		"0": "mcdonalds:block/electric_iron_side",
+		"1": "mcdonalds:block/electric_iron_front",
+		"2": "mcdonalds:block/top",
+		"4": "mcdonalds:block/blast_furnace_top",
+		"particle": "mcdonalds:block/electric_iron_side"
 	},
 	"elements": [
 		{

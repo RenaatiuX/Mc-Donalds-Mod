@@ -3,6 +3,8 @@ package com.rena.mcdonalds;
 import com.rena.mcdonalds.client.ClientProxy;
 import com.rena.mcdonalds.client.MDModels;
 import com.rena.mcdonalds.client.render.blocks.ChoppingBoardRenderer;
+import com.rena.mcdonalds.client.render.blocks.ElectricIronRenderer;
+import com.rena.mcdonalds.core.McDonaldsConfig;
 import com.rena.mcdonalds.core.ServerProxy;
 import com.rena.mcdonalds.core.init.BlockInit;
 import com.rena.mcdonalds.core.init.ItemInt;
@@ -16,14 +18,17 @@ import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -50,6 +55,7 @@ public class McDonalds
     public McDonalds() {
 
         PROXY = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, McDonaldsConfig.init(new ForgeConfigSpec.Builder()));
 
         // Register the setup method for modloading
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -82,6 +88,7 @@ public class McDonalds
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         ClientRegistry.bindTileEntityRenderer(TileEntityInit.CHOPPING_BOEARD_TE.get(), ChoppingBoardRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(TileEntityInit.ELECTRIC_IRON_TE.get(), ElectricIronRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

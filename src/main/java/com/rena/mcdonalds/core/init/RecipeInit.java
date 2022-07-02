@@ -2,6 +2,7 @@ package com.rena.mcdonalds.core.init;
 
 import com.rena.mcdonalds.McDonalds;
 import com.rena.mcdonalds.common.recipes.ChoppingRecipe;
+import com.rena.mcdonalds.common.recipes.ElectricIronRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
@@ -12,9 +13,11 @@ import net.minecraftforge.event.RegistryEvent;
 public class RecipeInit {
 
     public static final IRecipeType<ChoppingRecipe> CHOPPING_RECIPE = create("chopping_recipe");
+    public static final IRecipeType<ElectricIronRecipe> ELECTRIC_IRON_RECIPE = create("electric_iron_recipe");
 
     public static final void registerRecipes(RegistryEvent.Register<IRecipeSerializer<?>> event){
         registerRecipe(event, ChoppingRecipe.SERIALIZER, CHOPPING_RECIPE);
+        registerRecipe(event, ElectricIronRecipe.SERIALIZER, ELECTRIC_IRON_RECIPE);
     }
 
     private static void registerRecipe(RegistryEvent.Register<IRecipeSerializer<?>> event, IRecipeSerializer<?> serializer, IRecipeType<?> type){

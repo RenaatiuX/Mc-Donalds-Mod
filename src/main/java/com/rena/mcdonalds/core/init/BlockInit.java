@@ -2,6 +2,7 @@ package com.rena.mcdonalds.core.init;
 
 import com.rena.mcdonalds.McDonalds;
 import com.rena.mcdonalds.common.block.ChoppingBoard;
+import com.rena.mcdonalds.common.block.ElectricIron;
 import com.rena.mcdonalds.common.tab.McDonaldsTab;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -17,6 +18,7 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, McDonalds.MOD_ID);
 
     public static final RegistryObject<ChoppingBoard> CHOPPING_BOEARD = registerBlock("chopping_board", ChoppingBoard::new, () -> new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB));
+    public static final RegistryObject<ElectricIron> ELECTRIC_IRON = registerBlock("electric_iron", ElectricIron::new, () -> new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB));
 
 
     /**

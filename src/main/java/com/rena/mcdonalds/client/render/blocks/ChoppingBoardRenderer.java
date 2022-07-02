@@ -2,6 +2,7 @@ package com.rena.mcdonalds.client.render.blocks;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.rena.mcdonalds.common.tileentities.ChoppingBoardTe;
+import com.rena.mcdonalds.common.util.RenderUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.LightTexture;
@@ -43,27 +44,7 @@ public class ChoppingBoardRenderer extends TileEntityRenderer<ChoppingBoardTe> {
                     break;
             }
             Minecraft mc = Minecraft.getInstance();
-            renderItem(te.getInv().getStackInSlot(0), new double[]{0.5d,0.07d,0.5d}, Vector3f.YP.rotation(rotation), matrixStackIn, bufferIn, combinedOverlayIn, getLightLevel(mc.player.world, te.getPos()), 0.5f);
+            RenderUtil.renderItem(te.getInv().getStackInSlot(0), new double[]{0.5d,0.07d,0.5d}, Vector3f.YP.rotation(rotation), matrixStackIn, bufferIn, combinedOverlayIn, RenderUtil.getLightLevel(mc.player.world, te.getPos()), 0.5f);
         }
-    }
-
-    public static int getLightLevel(World world, BlockPos pos) {
-        int bLight = world.getLightFor(LightType.BLOCK, pos);
-        int sLight = world.getLightFor(LightType.SKY, pos);
-        return LightTexture.packLight(bLight, sLight);
-    }
-    public static void renderItem(ItemStack stack, double[] translation, Quaternion rotation, MatrixStack matrixStack,
-                                  IRenderTypeBuffer buffer, int combinedOverlay, int lightLevel, float scale) {
-        Minecraft mc = Minecraft.getInstance();
-        matrixStack.push();
-        matrixStack.translate(translation[0], translation[1], translation[2]);
-        matrixStack.rotate(rotation);
-        matrixStack.rotate(Vector3f.XN.rotationDegrees(90));
-        matrixStack.scale(scale, scale, scale);
-
-        IBakedModel model = mc.getItemRenderer().getItemModelWithOverrides(stack, null, null);
-        mc.getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.NONE, true, matrixStack, buffer,
-                lightLevel, combinedOverlay, model);
-        matrixStack.pop();
     }
 }

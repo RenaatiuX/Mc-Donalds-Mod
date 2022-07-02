@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mcdonalds:block/electric_iron"
+    },
+    "facing=east": {
+      "model": "mcdonalds:block/electric_iron",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mcdonalds:block/electric_iron",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mcdonalds:block/electric_iron",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "mcdonalds:electric_iron_recipe",
+  "input": {
+    "item" : "mcdonalds:meat_10_1"
+  },
+  "output": {
+    "item": "mcdonalds:cooked_meat_10_1"
+  },
+  "burnt": {
+    "item": "mcdonalds:burnt_meat_10_1"
+  },
+  "burnTime": 400
+}
