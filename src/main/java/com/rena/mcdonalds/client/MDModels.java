@@ -19,7 +19,7 @@ import java.util.Random;
 @OnlyIn(Dist.CLIENT)
 public class MDModels {
 
-    public static final String[] HAND_MODEL_ITEMS = new String[] {"fries_with_box", "box", "meat_10_1", "cooked_meat_10_1", "burnt_meat_10_1"};
+    public static final String[] HAND_MODEL_ITEMS = new String[] {"fries_with_box", "box", "meat_10_1", "cooked_meat_10_1", "burnt_meat_10_1", "spatula"};
 
     @SubscribeEvent
     public static void onModelBakeEvent(ModelBakeEvent event) {

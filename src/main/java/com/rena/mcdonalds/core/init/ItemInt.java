@@ -5,7 +5,6 @@ import com.rena.mcdonalds.common.item.ModToolMaterial;
 import com.rena.mcdonalds.common.tab.McDonaldsTab;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
-import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -59,6 +58,10 @@ public class ItemInt {
             ()-> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
     public static final RegistryObject<Item> BOX = ITEMS.register("box",
             ()-> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
-    public static final RegistryObject<Item> STRIPPED_POTATOES = ITEMS.register("stripped_potatoes", () -> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
+    public static final RegistryObject<Item> STRIPPED_POTATOES = ITEMS.register("stripped_potatoes",
+            () -> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
+
+    public static final RegistryObject<Item> SPATULA = ITEMS.register("spatula",
+            () -> new Item(new Item.Properties().group(McDonaldsTab.MC_DONALDS_TAB)));
 
 }
