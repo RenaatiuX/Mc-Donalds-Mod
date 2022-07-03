@@ -4,7 +4,6 @@ import com.rena.mcdonalds.common.recipes.ElectricIronRecipe;
 import com.rena.mcdonalds.common.tileentities.ElectricIronTe;
 import com.rena.mcdonalds.common.util.WorldUtils;
 import com.rena.mcdonalds.core.init.RecipeInit;
-import net.java.games.input.Keyboard;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
