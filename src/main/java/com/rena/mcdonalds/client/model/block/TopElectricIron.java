@@ -19,9 +19,9 @@ public class TopElectricIron extends EntityModel<Entity> {
         textureHeight = 64;
 
         body = new ModelRenderer(this);
-        body.setRotationPoint(0.0F, 1.5F, 2F);
+        body.setRotationPoint(0.0F, 24.0F, 8.0F);
         setRotationAngle(body, 1.5708F, 0.0F, 0.0F);
-        body.setTextureOffset(0, 0).addBox(-8.0F, -8.0F, -2.0F, 16.0F, 16.0F, 3.0F, 0.0F, false);
+        body.setTextureOffset(0, 0).addBox(-8.0F, -16.0F, 0.0F, 16.0F, 16.0F, 3.0F, 0.0F, false);
     }
 
     @Override
